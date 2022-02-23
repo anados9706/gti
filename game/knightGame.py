@@ -2,47 +2,46 @@
 from random import choice
 
 class Knight:
-    healthPoints = 30
+    HP = 30
     evasion = 7
     attackFuryWhip = 1
     attackDoubleSwing = choice ((2,4))
     attackPowerStrike = choice ((4, 7))
 
+class Hydra:
+    HP = 1
+    attack = 1    
+
 class Goblin:
     name = "Goblin"
-    healthPoints = 6
+    HP = 6
     attackStab = 3
 
 class Mercenary:
     name = "Mercenary"
-    healthPoints = choice ((5,12))
+    HP = choice ((5,12))
     attackWhip = choice ((1,2))
     attackSwing = choice ((3,5))
 
 class Troll:
     name = "Troll"
-    healthPoints = choice ((10, 15))
+    HP = choice ((10, 15))
     attackSwingClub = choice ((7, 10))
     
 class Cat:
     name = "Cat"
-    healthPoints = choice ((6, 10))
-    attackScratch = choice ((4, 7))
-
-class Turtle:
-    name = "Turtle"
-    healthPoints = choice ((5, 10))
-    attackTurtleShell = choice ((5, 7))
+    HP = choice ((6, 10))
+    attackScratch = choice ((4, 6))
 
 class Whisard:
     name = "Wisard"
-    healthPoints = choice ((5, 9))
-    attackDarkPower = choice ((5, 9))
+    HP = choice ((5, 9))
+    attackDarkPower = choice ((5, 7))
 
 class Weirdo:
     name = "Weirdo"
-    healthPoints = choice ((6, 12))
-    attackBananas = choice ((4, 10))
+    HP = choice ((6, 12))
+    attackBananas = choice ((4, 6))
 
 playing = True
 
@@ -50,50 +49,50 @@ playing = True
 knight = Knight()
 
 #villains
+hydra = Hydra()
 goblin = Goblin()
 mercenary = Mercenary()
 troll = Troll()
 cat = Cat()
-turtle = Turtle()
 whisard = Whisard()
 weirdo = Weirdo()
 
-villains = [goblin, mercenary, troll, cat, turtle, whisard, weirdo]
+villains = [hydra, goblin, mercenary, troll, cat, whisard, weirdo]
 round = 1
 
 def picVillain():
     vSize = len(villains) - 1
-    return villains[choice((0,vSize))]    
+    return villains[choice((0,vSize))]  
 
 while playing:
 
-    print ("================ Round", round," ================= ")
+    print ("================= Round", round," ================= ")
     print ("#### Hero #### ")
-    print ("HP =", knight.healthPoints)
+    print ("HP =", knight.HP)
     print ("Fury Whip =", knight.attackFuryWhip)
     print ("Double Swing =", knight.attackDoubleSwing)
     print ("Power Strike =",knight.attackPowerStrike)
 
+    print("#### Hydra #### ")
+    print("HP =", hydra.HP)
+
     print("#### Goblin #### ")
-    print("HP =", goblin.healthPoints)
+    print("HP =", goblin.HP)
 
     print("#### Mercenary #### ")
-    print("HP =", mercenary.healthPoints)
+    print("HP =", mercenary.HP)
 
     print("#### Troll ####")
-    print("HP =", troll.healthPoints)
+    print("HP =", troll.HP)
 
     print("#### Cat ####")
-    print("HP =", cat.healthPoints)
-
-    print("#### Turtle ####")
-    print("HP =", turtle.healthPoints)
+    print("HP =", cat.HP)
 
     print("#### Whisard ####")
-    print("HP =", whisard.healthPoints)
+    print("HP =", whisard.HP)
 
     print("#### Weirdo ####")
-    print("HP =", weirdo.healthPoints)
+    print("HP =", weirdo.HP)
 
     # Display hero menu
     # Here the Knigth attacks the villan
@@ -101,61 +100,56 @@ while playing:
     dammage = 0
     if attack == "0":
         villian = picVillain()
-        dammage =  villian.healthPoints- knight.attackFuryWhip  
+        dammage =  villian.HP- knight.attackFuryWhip  
         print("Villian =", villian.name)
         print("Hero attacks power =", knight.attackFuryWhip)  
-        villian.healthPoints = dammage 
+        villian.HP = dammage 
              
     elif attack == "1":
         villian = picVillain()
-        dammage =  villian.healthPoints- knight.attackDoubleSwing  
+        dammage =  villian.HP- knight.attackDoubleSwing  
         print("Villian 1 =", villian.name)
         print("Hero attacks power =", knight.attackDoubleSwing)
-        villian.healthPoints = dammage  
+        villian.HP = dammage  
 
         villian = picVillain()
-        dammage =  villian.healthPoints- knight.attackDoubleSwing  
+        dammage =  villian.HP- knight.attackDoubleSwing  
         print("Villian 2 =", villian.name)
         print("Hero attacks power =", knight.attackDoubleSwing)  
-        villian.healthPoints = dammage 
+        villian.HP = dammage 
 
     elif attack == "2":
         villain = picVillain()
-        damage = villain.healthpoints- knight.attackPowerStrike
+        damage = villain.HP- knight.attackPowerStrike
         print("Villain =", villain.name)
         print("Hero attacks power =", knight.attackPowerStrike)
-        villain.healthpoints = damage
-       
-       #Gato, oq eu fasso? uma lista so com poderes dos viloes e 
-       # dai criar um DEF. com cada poder de cala vilao, pra dai aqui no final, 
-       # quando forem atacar o eroi, o computador escolhe UM dos viloes e usa o 
-       # poder desse vilao pra atacar o heroi, tipo u  PICK A VILLAIN, sabe.
+        villain.HP = damage
 
     # Here the villan attacks the Knigth
     #dammage = knight.healthPoints - goblin.attackStab
-    dammage = knight.healthPoints - picVillain() 
-    #dammage = knight.healthPoints - (goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + turtle.attackTurtleShell + whisard.attackDarkPower + weirdo.attackBananas)
-    #print("villains attacks power=", goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + turtle.attackTurtleShell + whisard.attackDarkPower + weirdo.attackBananas)
+    #dammage = knight.healthPoints - picVillain() 
+    dammage = knight.HP - (hydra.attack + goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + whisard.attackDarkPower + weirdo.attackBananas)
+    print("villains attacks power=", goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + whisard.attackDarkPower + weirdo.attackBananas)
     #print("villains attacks power=", 
-    knight.healthPoints = dammage
+    knight.HP = dammage
 
     
     round = round +1
  
 print("************END************")
 print("#### Hero #### ")
-print("HP =", knight.healthPoints)
+print("HP =", knight.HP)
+print("#### Hydra #### ")
+print("HP =", hydra.HP)
 print("#### Goblin #### ")
-print("HP =", goblin.healthPoints)
+print("HP =", goblin.HP)
 print("### Mercenary ###")
-print("HP =", mercenary.healthPoints)
+print("HP =", mercenary.HP)
 print("### Troll ###")
-print("HP =", troll.healthPoints)
+print("HP =", troll.HP)
 print("### Cat ###")
-print("HP =", cat.healthPoints)
-print("### Turtle ###")
-print("HP =", turtle.healthPoints)
+print("HP =", cat.HP)
 print("### Whisard ###")
-print("HP =", whisard.healthPoints)
+print("HP =", whisard.HP)
 print("### Weirdo ###")
-print("HP =", weirdo.healthPoints)
+print("HP =", weirdo.HP)
