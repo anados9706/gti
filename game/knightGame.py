@@ -67,7 +67,7 @@ def picVillain():
 
 while playing:
 
-    print ("================= Round", round," ================= ")
+    print ("================ Round", round," ================= ")
     print ("#### Hero #### ")
     print ("HP =", knight.healthPoints)
     print ("Fury Whip =", knight.attackFuryWhip)
