@@ -9,47 +9,43 @@ class Knight:
     attackPowerStrike = choice ((4, 7))
 
 class Hydra:
+    name = "Hydra"
     healthPoints = choice((2,5)) 
-    attack = choice((2,5))
-    attacks = [attack]
+    attack = healthPoints
+
 
 class Goblin:
     name = "Goblin"
     healthPoints = 6
-    attackStab = 3
-    attacks = [attackStab]
-
+    attack = 3
+    
 class Mercenary:
     name = "Mercenary"
     healthPoints = choice ((5,12))
     attackWhip = choice ((1,2))
-    attackSwing = choice ((3,5))
-    attacks = [attackWhip,attackSwing]
+    attack = choice ((3,5))
+    
 
 class Troll:
     name = "Troll"
     healthPoints = choice ((10, 15))
-    attackSwingClub = choice ((7, 10))
-    attacks = [attackSwingClub]
+    attack = choice ((7, 10))
     
 class Cat:
     name = "Cat"
     healthPoints = choice ((6, 10))
-    attackScratch = choice ((4, 7))
-    attacks = [attackScratch]
-
+    attack = choice ((4, 7))
+    
 class Whisard:
     name = "Wisard"
     healthPoints = choice ((5, 9))
-    attackDarkPower = choice ((5, 9))
-    attacks = [attackDarkPower]
-
+    attack = choice ((5, 9))
+    
 
 class Weirdo:
     name = "Weirdo"
     healthPoints = choice ((6, 12))
-    attackBananas = choice ((4, 10))
-    attacks = [attackBananas]
+    attack = choice ((4, 10))
 
 
 playing = True
@@ -128,10 +124,11 @@ while playing:
         print("Qtd Villains= ",qtdVillainPicked)
         for x in range(qtdVillainPicked):
             villain = picVillain()
-        damage = villain.healthPoints- knight.attackFuryWhip
-        print("Villain =", villain.name)
-        print("Hero attacks power =", knight.attackFuryWhip)
-        villain.healthpoints = damage    
+            # hero attacks villain
+            damage = villain.healthPoints- knight.attackFuryWhip
+            print("Villain =", villain.name)
+            print("Hero attacks power =", knight.attackFuryWhip)
+            villain.healthpoints = damage     
              
     elif attack == "1":
         qtdVillainPicked = choice((2))
@@ -148,11 +145,30 @@ while playing:
         villain.healthpoints = damage
 
     # Here the villan attacks the Knigth
-    dammage = knight.healthPoints - (hydra.attack + goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + whisard.attackDarkPower + weirdo.attackBananas (knight.evasion))
-    print("villains attacks power=", hydra.attack + goblin.attackStab + mercenary.attackSwing + troll.attackSwingClub + cat.attackScratch + whisard.attackDarkPower + weirdo.attackBananas)
-    knight.healthPoints = dammage
-
+    attackValue = 0
+    for v in villains:
+        if v.name == "Mercenary":
+            mercenaryRandomAttack = choice((0,1))
+            if mercenaryRandomAttack == 0 :
+               knight.evasion -= choice((1,2))
+            else:
+                attackPercentage = (v.attack*knight.evasion) / 100
+                dammagePercentage = (knight.healthPoints * attackPercentage) 
+                knight.healthPoints = knight.healthPoints - dammagePercentage   
+        else:
+            attackPercentage = (v.attack*knight.evasion) / 100
+            dammagePercentage = (knight.healthPoints * attackPercentage) 
+            knight.healthPoints = knight.healthPoints - dammagePercentage 
     
+    if hydra.healthPoints > 0 :
+        hydra.healthPoints += 1
+   
+    if knight.healthPoints < 0:
+        print(" +++++++++++++++++++++++++++++")
+        print("     G A M E     O V E R")
+        print(" +++++++++++++++++++++++++++++")
+        break
+
     round = round +1
  
 print("************ END ************")
