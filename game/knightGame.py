@@ -9,6 +9,7 @@ class Knight:
     attackPowerStrike = choice ((4, 7))
 
 class Hydra:
+<<<<<<< HEAD
     HP = 1
     attack = 1    
 
@@ -18,18 +19,35 @@ class Goblin:
     attackStab = 3
     attacks = [attackStab]
 
+=======
+    name = "Hydra"
+    healthPoints = choice((2,5)) 
+    attack = healthPoints
+
+
+class Goblin:
+    name = "Goblin"
+    healthPoints = 6
+    attack = 3
+    
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 class Mercenary:
     name = "Mercenary"
     HP = choice ((5,12))
     attackWhip = choice ((1,2))
-    attackSwing = choice ((3,5))
-    attacks = [attackWhip,attackSwing]
+    attack = choice ((3,5))
+    
 
 class Troll:
     name = "Troll"
+<<<<<<< HEAD
     HP = choice ((10, 15))
     attackSwingClub = choice ((7, 10))
     attacks = [attackSwingClub]
+=======
+    healthPoints = choice ((10, 15))
+    attack = choice ((7, 10))
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
     
 class Cat:
     name = "Cat"
@@ -48,29 +66,18 @@ class Weirdo:
     attackBananas = choice ((4, 6))
 =======
     healthPoints = choice ((6, 10))
-    attackScratch = choice ((4, 7))
-    attacks = [attackScratch]
-
-
-class Turtle:
-    name = "Turtle"
-    healthPoints = choice ((5, 10))
-    attackTurtleShell = choice ((5, 7))
-    attacks = [attackTurtleShell]
-
-
+    attack = choice ((4, 7))
+    
 class Whisard:
     name = "Wisard"
     healthPoints = choice ((5, 9))
-    attackDarkPower = choice ((5, 9))
-    attacks = [attackDarkPower]
-
+    attack = choice ((5, 9))
+    
 
 class Weirdo:
     name = "Weirdo"
     healthPoints = choice ((6, 12))
-    attackBananas = choice ((4, 10))
-    attacks = [attackBananas]
+    attack = choice ((4, 10))
 
 >>>>>>> 615c1b97660de625508ba69510778ab4695e48e0
 
@@ -95,7 +102,7 @@ def picVillain():
     vSize = len(villains) - 1
     return villains[choice((0,vSize))]  
 
-def battle(hero,villian):
+#def battle(hero,villian):
     print("Hero > Villain")
     print("\t Hero attacks power =", hero.attackFuryWhip)
     print("\t Villian =", villian.name)
@@ -120,8 +127,13 @@ while playing:
     print ("Double Swing =", knight.attackDoubleSwing)
     print ("Power Strike =",knight.attackPowerStrike)
 
+<<<<<<< HEAD
     print("#### Hydra #### ")
     print("HP =", hydra.HP)
+=======
+    print("#### Hydra ####")
+    print("HP =", hydra.healthPoints)
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 
     print("#### Goblin #### ")
     print("HP =", goblin.HP)
@@ -133,7 +145,11 @@ while playing:
     print("HP =", troll.HP)
 
     print("#### Cat ####")
+<<<<<<< HEAD
     print("HP =", cat.HP)
+=======
+    print("HP =", cat.healthPoints)
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 
     print("#### Whisard ####")
     print("HP =", whisard.HP)
@@ -157,6 +173,7 @@ while playing:
         print("Qtd Villains= ",qtdVillainPicked)
         for x in range(qtdVillainPicked):
             villain = picVillain()
+<<<<<<< HEAD
             battle(knight,villain)
            
 >>>>>>> 615c1b97660de625508ba69510778ab4695e48e0
@@ -173,12 +190,27 @@ while playing:
         print("Villian 2 =", villian.name)
         print("Hero attacks power =", knight.attackDoubleSwing)  
         villian.HP = dammage 
+=======
+            # hero attacks villain
+            damage = villain.healthPoints- knight.attackFuryWhip
+            print("Villain =", villain.name)
+            print("Hero attacks power =", knight.attackFuryWhip)
+            villain.healthpoints = damage     
+             
+    elif attack == "1":
+        qtdVillainPicked = choice((2))
+        dammage =  villain.healthPoints- knight.attackDoubleSwing  
+        print("Villian 1 =", villain.name)
+        print("Hero attacks power =", knight.attackDoubleSwing)
+        villain.healthPoints = dammage  
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 
     elif attack == "2":
         villain = picVillain()
         damage = villain.HP- knight.attackPowerStrike
         print("Villain =", villain.name)
         print("Hero attacks power =", knight.attackPowerStrike)
+<<<<<<< HEAD
         villain.HP = damage
 
     # Here the villan attacks the Knigth
@@ -196,14 +228,48 @@ while playing:
     #knight.healthPoints = dammage
 >>>>>>> 615c1b97660de625508ba69510778ab4695e48e0
 
+=======
+        villain.healthpoints = damage
+
+    # Here the villan attacks the Knigth
+    attackValue = 0
+    for v in villains:
+        if v.name == "Mercenary":
+            mercenaryRandomAttack = choice((0,1))
+            if mercenaryRandomAttack == 0 :
+               knight.evasion -= choice((1,2))
+            else:
+                attackPercentage = (v.attack*knight.evasion) / 100
+                dammagePercentage = (knight.healthPoints * attackPercentage) 
+                knight.healthPoints = knight.healthPoints - dammagePercentage   
+        else:
+            attackPercentage = (v.attack*knight.evasion) / 100
+            dammagePercentage = (knight.healthPoints * attackPercentage) 
+            knight.healthPoints = knight.healthPoints - dammagePercentage 
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
     
+    if hydra.healthPoints > 0 :
+        hydra.healthPoints += 1
+   
+    if knight.healthPoints < 0:
+        print(" +++++++++++++++++++++++++++++")
+        print("     G A M E     O V E R")
+        print(" +++++++++++++++++++++++++++++")
+        break
+
     round = round +1
  
-print("************END************")
+print("************ END ************")
 print("#### Hero #### ")
+<<<<<<< HEAD
 print("HP =", knight.HP)
 print("#### Hydra #### ")
 print("HP =", hydra.HP)
+=======
+print("HP =", knight.healthPoints)
+print("#### Hydra #### ")
+print("HP =", hydra.healthPoints)
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 print("#### Goblin #### ")
 print("HP =", goblin.HP)
 print("### Mercenary ###")
@@ -211,7 +277,11 @@ print("HP =", mercenary.HP)
 print("### Troll ###")
 print("HP =", troll.HP)
 print("### Cat ###")
+<<<<<<< HEAD
 print("HP =", cat.HP)
+=======
+print("HP =", cat.healthPoints)
+>>>>>>> 17c4c698013546ea8a346f7081a8a1ed85e5826b
 print("### Whisard ###")
 print("HP =", whisard.HP)
 print("### Weirdo ###")
