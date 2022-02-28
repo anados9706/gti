@@ -1,0 +1,46 @@
+'''
+a = 100
+b = "hello"
+c = Dict ()
+d = []
+
+* input
+action = input()
+f = open("data.txt","r")
+f.read()
+f.readline()
+f.close()
+
+* output
+print("Hello World")
+f = open("data.txt", "a")
+f.write("This is output")
+f.close()
+
+* Primitives, References, or Objects
+None
+
+
+VARIABLES
+age = 20
+first_name = "John"
+last_name = "Smith."
+status = " New patient."
+print(first_name, last_name,age, status)
+
+
+RECIVING INPUT
+name = input("What is your name?")
+print("Hello" + name)
+
+
+
+TYPE OF CONVERSATION
+10 (numbers)
+"Ana" (strings)
+True (booleans)
+'''
+
+birth_year = input("Enter your birth year: ")
+age = 2022 - birth_year
+print (age)
