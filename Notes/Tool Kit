@@ -1,0 +1,133 @@
+TOOL KIT
+
+Data types: 
+ boolean
+
+ integer
+
+ floating point
+
+ strings
+
+ list
+
+ dictionary(map)
+
+ tuple
+
+ set
+
+Operations:
+  boolean: 
+     ==
+     >
+     <
+     >=
+     <=
+     or
+     and
+     !=
+     not
+
+  arithmetic: 
+     +
+     -
+     /
+     *
+     **
+     %
+     +=
+     -=
+     /=
+     *= 
+
+Decisions: 
+ if
+
+ elif
+
+ else
+
+Loops: 
+ for ( for i in range(x) )
+   for i in range(5) => 0, 1, 2, 3, 4
+   for i in range(2,5) => 2, 3, 4
+   for i in range( 0,-5,-1) => 0, -1, -2, -3, -4
+   for i in range(0,10,2) => 0, 2, 4, 6, 8
+
+ while
+   exit: 
+   break
+   condition of termination "when the conditon is false" ( sentinel value)
+   reutrn
+
+While conditon: pass#body (comments)    
+
+Functins: 
+ signature:
+     def name([parameter, ...]): 
+          pass#body
+    "calling"
+          name([arguments, ...]) 
+
+Class: 
+  "a bunch of values"
+  "blue print" for objects
+
+Class Name: 
+ def__init__(self):
+     pass
+
+Method:
+ def name(self,...)
+
+Body of thing
+ tab 'em over '
+
+Different languages:
+ C# 
+
+ C
+
+ C++
+
+ Java
+
+ Java Script
+
+ octave
+
+ rust
+
+ CL 
+
+ objective c
+
+ R, ...
+
+Interpreted VS compile languages:
+  High Level > Interpreted
+             > byte code  
+  Low Level  > machine code
+
+IDE: Integrated Development Enviroment
+ VS Code Editor
+
+Keywords:
+ ()
+
+ []
+
+ def
+ 
+ if
+
+ dict()
+
+Operators(operations) HAS Operands > "x"(operand) *(operator) "y"(operand)
+
+primitives
+
+Statement & expressions
+
+reference> memory location
