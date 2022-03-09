@@ -17,14 +17,14 @@ def reverseString_fun(rString_list):
      reversed_list[s]=item
     return reversed_list
 
-list1 = "Hello World" 
+list1 = "Ana Banana" 
 
 def listToString(s):
 	reverseString_fun = ""
 	for ele in s:
 		reverseString_fun += ele
 	return reverseString_fun
-s = "Hello World"
+s = "Ana Banana"
 print(listToString(s))
 
 print(reverseString_fun(list1))    
